@@ -24,7 +24,7 @@ weight_decay: 0.0
 
 timesteps: 1000
 beta_schedule: cosine
-ddim_timesteps: 100
+ddim_timesteps: 1000
 
 in_channels: 1
 out_channels: 1
