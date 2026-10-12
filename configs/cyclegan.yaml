@@ -16,7 +16,7 @@ device: auto
 seed: 42
 
 batch_size: 8
-epochs: 500
+epochs: 100
 lr: 0.0002
 beta1: 0.5
 beta2: 0.999
@@ -38,6 +38,6 @@ log_dir: logs/cyclegan
 checkpoint_dir: checkpoints/cyclegan
 sample_dir: outputs/cyclegan
 log_interval: 20
-eval_interval: 5
+eval_interval: 10
 n_eval_samples: 256
 n_save_samples: 16

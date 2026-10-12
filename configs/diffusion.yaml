@@ -42,6 +42,6 @@ log_dir: logs/diffusion
 checkpoint_dir: checkpoints/diffusion
 sample_dir: outputs/diffusion
 log_interval: 20
-eval_interval: 10
+eval_interval: 50
 n_eval_samples: 256
 n_save_samples: 16
