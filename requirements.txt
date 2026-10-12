@@ -1,0 +1,22 @@
+# Python 版本建议 >= 3.9（本项目在 3.10+ 上测试）
+torch>=2.0
+torchvision>=0.15
+
+# 数据处理与数值计算
+numpy
+pandas
+pillow
+scipy
+scikit-image
+
+# 可视化与日志
+matplotlib
+tensorboard
+tqdm
+PyYAML
+
+# 可选：感知指标 LPIPS（未安装时代码会自动跳过）
+lpips
+
+# 可选：下载数据集脚本依赖
+requests

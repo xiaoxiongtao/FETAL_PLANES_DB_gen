@@ -1,0 +1,25 @@
+# 数据与运行产物
+data/
+logs/
+checkpoints/
+outputs/
+*.pt
+*.pth
+*.png
+*.jpg
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+*.workbuddy
+
+# IDE
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,43 @@
+# CycleGAN 训练配置（胎儿切面间无配对翻译）
+# 运行: python main.py train-cyclegan --config configs/cyclegan.yaml
+name: cyclegan
+
+data:
+  data_root: data/FETAL_PLANES_ZENODO
+  img_dir: data/FETAL_PLANES_ZENODO/Images
+  csv_path: data/FETAL_PLANES_ZENODO/FETAL_PLANES_DB_data.csv
+  img_size: 128
+  channels: 1
+  num_workers: 4
+  source_plane: "Fetal brain"      # A 域（输入切面）
+  target_plane: "Fetal femur"      # B 域（目标切面）
+
+device: auto
+seed: 42
+
+batch_size: 8
+epochs: 500
+lr: 0.0002
+beta1: 0.5
+beta2: 0.999
+lr_decay_epoch: 25
+
+input_nc: 1
+output_nc: 1
+ngf: 64
+ndf: 64
+n_resblocks: 9
+n_layers_D: 3
+
+gan_mode: lsgan
+lambda_cycle: 10.0
+lambda_identity: 0.5
+use_identity: true
+
+log_dir: logs/cyclegan
+checkpoint_dir: checkpoints/cyclegan
+sample_dir: outputs/cyclegan
+log_interval: 20
+eval_interval: 5
+n_eval_samples: 256
+n_save_samples: 16

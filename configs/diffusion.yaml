@@ -1,0 +1,47 @@
+# Diffusion (DDPM) 训练配置（胎儿切面类别条件生成）
+# 运行: python main.py train-diffusion --config configs/diffusion.yaml
+name: diffusion
+
+data:
+  data_root: data/FETAL_PLANES_ZENODO
+  img_dir: data/FETAL_PLANES_ZENODO/Images
+  csv_path: data/FETAL_PLANES_ZENODO/FETAL_PLANES_DB_data.csv
+  img_size: 128
+  channels: 1
+  num_workers: 4
+  # Diffusion 类别条件生成使用的类别（默认全部 6 类）
+  planes: ["Fetal abdomen", "Fetal brain", "Fetal femur",
+           "Fetal thorax", "Maternal cervix", "Other"]
+
+device: auto
+seed: 42
+
+batch_size: 16
+epochs: 100
+lr: 0.0002
+betas: [0.9, 0.999]
+weight_decay: 0.0
+
+timesteps: 1000
+beta_schedule: cosine
+ddim_timesteps: 1000
+
+in_channels: 1
+out_channels: 1
+base_channels: 64
+channel_mults: [1, 2, 4, 8]
+num_res_blocks: 2
+attention_resolutions: [16, 8]
+dropout: 0.0
+class_cond: true
+num_classes: 6
+
+ema_decay: 0.9999
+
+log_dir: logs/diffusion
+checkpoint_dir: checkpoints/diffusion
+sample_dir: outputs/diffusion
+log_interval: 20
+eval_interval: 10
+n_eval_samples: 256
+n_save_samples: 16
