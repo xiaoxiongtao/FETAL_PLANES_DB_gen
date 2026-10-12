@@ -17,14 +17,14 @@ device: auto
 seed: 42
 
 batch_size: 16
-epochs: 100
+epochs: 1000
 lr: 0.0002
 betas: [0.9, 0.999]
 weight_decay: 0.0
 
 timesteps: 1000
 beta_schedule: cosine
-ddim_timesteps: 1000
+ddim_timesteps: 100
 
 in_channels: 1
 out_channels: 1
