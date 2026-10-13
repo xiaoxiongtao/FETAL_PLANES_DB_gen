@@ -92,17 +92,17 @@ def plot_training_curves(log_path: str, columns: List[str], title: str = "训练
 def plot_metric_comparison(metrics: dict, metric_name: str = "FID",
                            save_path: Optional[str] = None, lower_is_better: bool = True):
     """绘制两个模型的指标对比柱状图。metrics: {model_name: value}。"""
+    
     names = list(metrics.keys())
     values = [metrics[n] for n in names]
     colors = ["#4C72B0", "#DD8452"]
-
     fig, ax = plt.subplots(figsize=(5, 4))
     bars = ax.bar(names, values, color=colors[:len(names)], width=0.5)
     for b, v in zip(bars, values):
         ax.text(b.get_x() + b.get_width() / 2, v, f"{v:.2f}",
                 ha="center", va="bottom", fontsize=11)
     ax.set_ylabel(metric_name)
-    ax.set_title(f"{metric_name} 对比（{'越低越好' if lower_is_better else '越高越好'}）")
+    ax.set_title(f"{metric_name} Comparison ({'Lower is better' if lower_is_better else 'Higher is better'})")
     ax.grid(axis="y", alpha=0.3)
     plt.tight_layout()
     if save_path:
